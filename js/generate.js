@@ -64,20 +64,49 @@ var sudoku = [
 ];
 
 function generateSudoku() {
-    for (var i = 1; i <= allSudoku.length; i++) {
-        var randomLine = (Math.floor(Math.random() * allSudoku.length));
-        allSudoku[randomLine];
-        console.log(randomLine);
-        var index = 0;
-        for (var i = 0; i < 9; i++) {
-            for (var j = 0; j < 9; j++) {
-                sudoku[i][j] = allSudoku[randomLine][index];
-                index++;
-            }
+    var randomLine = (Math.floor(Math.random() * allSudoku.length));
+    allSudoku[randomLine];
+    console.log(randomLine);
+
+    var index = 0;
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+            sudoku[i][j] = allSudoku[randomLine][index];
+            index++;
         }
-    }
+    } console.log(sudoku);
 }
 generateSudoku();
+
+
+
+function createTable() {
+    var grid = document.getElementById('grille');
+    grid.innerHTML = ['<table cellSpacing="0"><tbody>',
+        new Array(10).join(getLine()),
+        '</tbody></table>'
+    ].join('');
+}
+function getLine() {
+    return ['<tr>',
+        new Array(10).join('<td><input type="text" size="1" maxLength="1"></td>'),
+        '</tr>'].join('');
+}
+createTable();
+
+
+// function displaySudoku() {
+//     $("#generateTable").click(function () {
+//         $("#grille").html(generateSudoku());
+//     })
+// }
+// displaySudoku();
+
+
+
+
+
+
 
 
 
