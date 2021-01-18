@@ -79,7 +79,8 @@ function generateSudoku() {
 }
 generateSudoku();
 
-$(document).ready(function () {
+
+$(document).ready(function displaySudoku() {
     generateSudoku();
     var sudokuHtml = '<div class="container">';
     for (var i = 0; i < 9; i++) {
@@ -93,19 +94,29 @@ $(document).ready(function () {
 
     $("#generateTable").click(function () {
         $("#sudoku").html(sudokuHtml);
+        displaySudoku();
+        $("#sudoku").html(sudokuHtml);
     })
 })
 
+function isRowValid(line, number) {
+    for (var i = 0; i < 9; i++) {
+        if (sudoku[i][line] === number) {
+            number = false;
+        } else {
+            number = true;
+        }
+    } return true;
+}
+isRowValid();
 
-
-
-
-
-
-
-
-
-
-
-
-
+function isColumnValid(column, number) {
+    for (var i = 0; i < 9; i++) {
+        if (sudoku[i][column] === number) {
+            number = false;
+        } else {
+            number = true;
+        }
+    } return true;
+}
+isColumnValid();
