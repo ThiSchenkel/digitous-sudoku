@@ -1,2 +1,5 @@
 # digitous-sudoku
-https://github.com/ThiSchenkel/digitous-sudoku/blob/main/img/Sudoku.png?raw=true
+
+- Aperçu de mon Sudoku -
+
+<p>https://github.com/ThiSchenkel/digitous-sudoku/blob/main/img/Sudoku.png?raw=true</p>
