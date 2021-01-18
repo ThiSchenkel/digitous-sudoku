@@ -63,10 +63,10 @@ var sudoku = [
     [4, 6, 3, 1, 5, 2, 8, 7, 9]
 ];
 
+
 function generateSudoku() {
-    var randomLine = (Math.floor(Math.random() * allSudoku.length));
-    allSudoku[randomLine];
-    console.log(randomLine);
+    var randomLine = Math.floor(Math.random() * allSudoku.length);
+    console.log(allSudoku[randomLine]);
 
     var index = 0;
     for (var i = 0; i < 9; i++) {
@@ -74,33 +74,31 @@ function generateSudoku() {
             sudoku[i][j] = allSudoku[randomLine][index];
             index++;
         }
-    } console.log(sudoku);
+    }
+    console.log(sudoku);
 }
 generateSudoku();
 
+$(document).ready(function () {
+    generateSudoku();
+    var sudokuHtml = '<div class="container">';
+    for (var i = 0; i < 9; i++) {
+        sudokuHtml += `<div id="row${i}" class="row">`;
+        for (var j = 0; j < 9; j++) {
+            sudokuHtml += `<div id="col${j}" class="col-1 case">${sudoku[i][j]}</div>`;
+        }
+        sudokuHtml += '</div>';
+    }
+    sudokuHtml += '</div>';
+
+    $("#generateTable").click(function () {
+        $("#sudoku").html(sudokuHtml);
+    })
+})
 
 
-function createTable() {
-    var grid = document.getElementById('grille');
-    grid.innerHTML = ['<table cellSpacing="0"><tbody>',
-        new Array(10).join(getLine()),
-        '</tbody></table>'
-    ].join('');
-}
-function getLine() {
-    return ['<tr>',
-        new Array(10).join('<td><input type="text" size="1" maxLength="1"></td>'),
-        '</tr>'].join('');
-}
-createTable();
 
 
-// function displaySudoku() {
-//     $("#generateTable").click(function () {
-//         $("#grille").html(generateSudoku());
-//     })
-// }
-// displaySudoku();
 
 
 

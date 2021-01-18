@@ -1,5 +1,5 @@
  body {
-	background-color:black;
+	background-color: #11131f;
 	margin:auto;
 	width:100%;
 	text-align:center;
@@ -10,11 +10,47 @@ h1{
     font-weight: bolder;
     width: 100%;
     text-align: center;
-    position: relative;
-    z-index: 1;
+    color: white;
+    margin-top: 10%;
     animation: neon .08s ease-in-out infinite alternate;
             animation: neon .08s ease-in-out infinite alternate;   
 }
+
+#sudoku{
+  margin: 30px;
+}
+
+.row {
+display: flex;
+justify-content: center;
+}
+
+.col{
+  text-align: center;
+  margin: 10px;
+}
+
+ .case{
+width: 40px;
+height: 40px;
+border : 1px solid rgb(185, 183, 183);
+margin: 1px;
+color: white;
+ }
+ 
+
+button {
+  margin : 10px;
+  font-family: 'Oswald';
+  font-weight: bold;
+  animation: neon .08s ease-in-out infinite alternate;
+  animation: neon .08s ease-in-out infinite alternate;
+  border-radius : 10px; 
+  background-color: transparent;
+  color: white;
+
+}
+
 
   @-webkit-keyframes neon {
     from {
@@ -58,29 +94,7 @@ h1{
     }
   }
 
-#grille input {
-    border:none;
-    text-align:center; 
-    width:40px;
-    height:40px; 
-    padding:1px;
-}
 
-#grille table {
-    border-collapse:collapse; 
-    display : flex;
-    justify-content: center;
-}
 
-#grille table td.grey input{
-    background:white;
-}
 
-button {
-    margin : 1%;
-    font-family: 'Oswald';
-    font-weight: bold;
-    z-index: 1;
-    animation: neon .08s ease-in-out infinite alternate;
-    animation: neon .08s ease-in-out infinite alternate;   
-}
+
