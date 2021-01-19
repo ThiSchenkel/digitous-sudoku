@@ -63,30 +63,33 @@ var sudoku = [
     [4, 6, 3, 1, 5, 2, 8, 7, 9]
 ];
 
-
+// fonction generateSudoku
 function generateSudoku() {
     var randomLine = Math.floor(Math.random() * allSudoku.length);
-    console.log(allSudoku[randomLine]);
-
     var index = 0;
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
             sudoku[i][j] = allSudoku[randomLine][index];
             index++;
+            if (sudoku[i][j] === ".") {
+                sudoku[i][j] = "";
+            } else {
+                sudoku[i][j] = parseInt(allSudoku[randomLine][i * 9 + j]);
+            }
         }
     }
-    console.log(sudoku);
 }
 generateSudoku();
 
 
+// fonction displaySudoku + bouton pour générer le sudoku
 $(document).ready(function displaySudoku() {
     generateSudoku();
     var sudokuHtml = '<div class="container">';
     for (var i = 0; i < 9; i++) {
-        sudokuHtml += `<div id="row${i}" class="row">`;
+        sudokuHtml += `<div id="row${i} " class="row " >`;
         for (var j = 0; j < 9; j++) {
-            sudokuHtml += `<div id="col${j}" class="col-1 case">${sudoku[i][j]}</div>`;
+            sudokuHtml += `<div id="col${j} " class="col-1 case centrage">${sudoku[i][j]}</div>`;
         }
         sudokuHtml += '</div>';
     }
@@ -99,6 +102,8 @@ $(document).ready(function displaySudoku() {
     })
 })
 
+
+// Ligne valide
 function isRowValid(line, number) {
     for (var i = 0; i < 9; i++) {
         if (sudoku[i][line] === number) {
@@ -110,6 +115,8 @@ function isRowValid(line, number) {
 }
 isRowValid();
 
+
+// Colonne valide
 function isColumnValid(column, number) {
     for (var i = 0; i < 9; i++) {
         if (sudoku[i][column] === number) {
@@ -120,3 +127,18 @@ function isColumnValid(column, number) {
     } return true;
 }
 isColumnValid();
+
+
+// Block valide
+// function isBlockValid(line, column, number) {
+//     var number = "";
+//     for (var i = 0; i < 3; i++) {
+//         for (var j = 0; j < 3; i++) {
+//            
+//             if (sudoku[i][j][line] === 0 || sudoku[i][j][line] === 1 || sudoku[i][j][line] === 2 || ) {
+//                 sudoku[i][j][line] = false;
+//         } 
+//     }
+//     // } return true
+// }
+// isBlockValid();
